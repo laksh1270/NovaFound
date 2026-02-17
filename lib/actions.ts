@@ -56,34 +56,22 @@ export async function createPitch(
     status: "SUCCESS",
     _id: doc._id,
   });
-<<<<<<< HEAD
 }
 
 /* ===============================
    DELETE STARTUP
    =============================== */
 export async function deleteStartup(startupId: string) {
-=======
-};
-
-export const deleteStartup = async (id: string) => {
->>>>>>> 0938127 (fix: build errors, next.js 15 compat, next-auth types)
   const session = await auth();
 
   if (!session?.user?.id) {
     return parseServerActionResponse({
-<<<<<<< HEAD
       status: "ERROR",
       error: "Not authenticated",
-=======
-      error: "Not authenticated",
-      status: "ERROR",
->>>>>>> 0938127 (fix: build errors, next.js 15 compat, next-auth types)
     });
   }
 
   try {
-<<<<<<< HEAD
     const startup = await writeclient.fetch(
       `*[_type=="startup" && _id==$id][0]{ _id, author->{_id} }`,
       { id: startupId }
@@ -127,37 +115,4 @@ export const deleteStartup = async (id: string) => {
     });
   }
 }
-=======
-    const startup = await writeclient
-      .withConfig({ useCdn: false })
-      .fetch(`*[_type == "startup" && _id == $id][0]`, { id });
 
-    if (!startup) {
-      return parseServerActionResponse({
-        error: "Startup not found",
-        status: "ERROR",
-      });
-    }
-
-    if (startup.author?._ref !== session?.user?.id) {
-      return parseServerActionResponse({
-        error: "Unauthorized",
-        status: "ERROR",
-      });
-    }
-
-    await writeclient.delete(id);
-
-    return parseServerActionResponse({
-      title: "Startup Deleted",
-      error: "",
-      status: "SUCCESS",
-    });
-  } catch (error) {
-    return parseServerActionResponse({
-      error: JSON.stringify(error),
-      status: "ERROR",
-    });
-  }
-};
->>>>>>> 0938127 (fix: build errors, next.js 15 compat, next-auth types)
