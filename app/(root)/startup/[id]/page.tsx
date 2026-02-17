@@ -14,12 +14,8 @@ const md = markdownit();
 
 export const experimental_ppr = true;
 
-export default async function Page(props: {
-  params: Promise<{ id: string }> | { id: string };
-}) {
-  // ✅ Handle both async and sync params
-  const resolvedParams = await Promise.resolve(props.params);
-  const { id } = resolvedParams;
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+  const id = (await params).id;
 
   if (!id) {
     console.error("❌ No ID provided in route params");
@@ -29,8 +25,8 @@ export default async function Page(props: {
   const post = await client.fetch(STARTUPS_BY_ID_QUERY, { id });
 
   if (!post) return notFound();
-  
-  const parsedContent = md.render(post?.pitch || ''); 
+
+  const parsedContent = md.render(post?.pitch || '');
 
   return (
     <>
@@ -62,30 +58,30 @@ export default async function Page(props: {
                 height={64}
                 className="rounded-full drop-shadow-lg"
               />
-              
+
               <div>
                 <p className="text-20-medium">{post.author.name}</p>
                 <p className="text-16-medium !text-black-300">@{post.author.username}</p>
               </div>
             </Link>
-            
+
             <p className="category-tag">{post.category}</p>
           </div>
-            <h3 className="text-30-bold">Pitch Details</h3>
-            {parsedContent ?(
-              <article className="prose test-prose max-w-4xl font-work-sans font-bold break-all" dangerouslySetInnerHTML={{ __html: parsedContent }} />
-            ) : (
-              <p className="no-result">No Deatils provider</p>
-            )}
+          <h3 className="text-30-bold">Pitch Details</h3>
+          {parsedContent ? (
+            <article className="prose test-prose max-w-4xl font-work-sans font-bold break-all" dangerouslySetInnerHTML={{ __html: parsedContent }} />
+          ) : (
+            <p className="no-result">No Deatils provider</p>
+          )}
         </div>
-        
+
         <hr className="divider" />
         {/* TODO: EDITIOR SELECTED STARTUPS  */}
-        
+
         <Suspense fallback={<Skeleton className="view_skeleton" />}>
-            <View id={id} />
+          <View id={id} />
         </Suspense>
-        
+
       </section>
     </>
   );

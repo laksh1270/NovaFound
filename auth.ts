@@ -9,6 +9,8 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
   callbacks: {
     async signIn({ user: { name, email, image }, profile }) {
+      if (!profile) return false;
+
       const existingUser = await client
         .withConfig({ useCdn: false })
         .fetch(AUTHOR_BY_GITHUB_ID_QUERY, { id: profile.id });

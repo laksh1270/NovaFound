@@ -8,13 +8,13 @@ import { auth } from "@/auth";
 export default async function Home({
   searchParams,
 }: {
-  searchParams?: { query?: string };
+  searchParams: Promise<{ query?: string }>;
 }) {
-  const query = searchParams?.query ?? "";
-  const params = { search: query || null }
-   
+  const query = (await searchParams).query;
+  const params = { search: query || null };
+
   const session = await auth();
-  console.log(session?.id);
+  console.log(session?.user?.id);
 
   // Assert return shape so TS knows `.data` exists and matches StartupTypeCard[]
   const res = (await sanityFetch({ query: STARTUPS_QUERY, params })) as {
@@ -53,7 +53,7 @@ export default async function Home({
           )}
         </ul>
       </section>
-      
+
       <SanityLive />
     </>
   );

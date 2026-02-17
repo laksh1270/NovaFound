@@ -10,8 +10,8 @@ import { StartupCardSkeleton } from "@/components/StartupCard";
 
 export const experimental_ppr = true;
 
-const Page = async ({ params }: { params: { id: string } }) => {
-  const { id } = params;
+const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const id = (await params).id;
 
   const session = await auth();
 
