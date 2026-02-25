@@ -44,6 +44,7 @@ Sentry.init({
     Sentry.replayIntegration(),
     Sentry.feedbackIntegration({
       colorScheme: "system",
+      autoInject: true,
 
       // SAFE — This callback never crashes
       onSubmitError() {

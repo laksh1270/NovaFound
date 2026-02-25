@@ -9,7 +9,17 @@ import { Skeleton } from "@/components/ui/skeleton";
 // Use same type structure as repo
 export type StartupTypeCard = Omit<Startup, "author"> & { author?: Author };
 
-const StartupCard = ({ post }: { post: StartupTypeCard }) => {
+import DeleteStartupButton from "@/components/DeleteStartupButton";
+
+const StartupCard = ({
+  post,
+  currentUserId,
+  isAdmin,
+}: {
+  post: StartupTypeCard;
+  currentUserId?: string;
+  isAdmin?: boolean;
+}) => {
   const {
     _id,
     _createdAt,
@@ -21,8 +31,10 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
     category,
   } = post;
 
+  const canDelete = currentUserId === author?._id || isAdmin;
+
   return (
-    <li className="startup-card group overflow-hidden">
+    <li className="startup-card group overflow-hidden w-full h-full flex flex-col">
       {/* Top: Date + Views */}
       <div className="flex-between">
         <p className="startup_card_date">{formatDate(_createdAt)}</p>
@@ -76,7 +88,7 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
       </Link>
 
       {/* Bottom: Category + Button */}
-      <div className="flex-between gap-3 mt-5">
+      <div className="flex-between gap-3 mt-5 mt-auto">
         {category && (
           <Link
             href={`/?query=${category.toLowerCase()}`}
@@ -86,12 +98,15 @@ const StartupCard = ({ post }: { post: StartupTypeCard }) => {
           </Link>
         )}
 
-        <Button
-          asChild
-          className="rounded-3xl bg-black text-white px-4 py-2 hover:bg-gray-900 inline-flex items-center justify-center shrink-0"
-        >
-          <Link href={`/startup/${_id}`}>View Startup</Link>
-        </Button>
+        <div className="flex gap-2 items-center">
+          {canDelete && <DeleteStartupButton id={_id} />}
+          <Button
+            asChild
+            className="rounded-3xl bg-black text-white px-4 py-2 hover:bg-gray-900 inline-flex items-center justify-center shrink-0"
+          >
+            <Link href={`/startup/${_id}`}>View Startup</Link>
+          </Button>
+        </div>
       </div>
     </li>
   );

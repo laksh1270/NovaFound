@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { auth, signOut, signIn } from "@/auth";
-import { BadgePlus, LogOut } from "lucide-react";
+import { BadgePlus, LogOut, House } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const Navbar = async () => {
@@ -19,9 +19,14 @@ const Navbar = async () => {
         <div className="flex items-center gap-5">
           {session?.user ? (
             <>
+              <Link href="/">
+                <span className="max-sm:hidden font-medium">Home</span>
+                <House className="size-6 sm:hidden" />
+              </Link>
+
               <Link href="/startup/create">
                 <span className="max-sm:hidden font-medium">Create</span>
-                  <BadgePlus className="size-6 sm:hidden" />
+                <BadgePlus className="size-6 sm:hidden" />
               </Link>
 
               <form

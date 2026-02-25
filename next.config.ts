@@ -9,14 +9,9 @@ const nextConfig: NextConfig = {
     ],
   },
   experimental: {
-    ppr: "incremental",
-    after: true,
+    cacheComponents: true,
   },
-  devIndicators: {
-    buildActivity: true,
-    buildActivityPosition: "bottom-right",
-    appIsrStatus: false,
-  },
+
 };
 
 export default withSentryConfig(nextConfig, {

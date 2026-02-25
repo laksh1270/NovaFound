@@ -44,5 +44,29 @@ export const startup = defineType({
       name: "pitch",
       type: "markdown",
     }),
+    defineField({
+      name: "startupType",
+      title: "Startup Type",
+      type: "string",
+      options: {
+        list: [
+          { title: "Private", value: "private" },
+          { title: "Government", value: "government" },
+          { title: "Both", value: "both" },
+        ],
+      },
+      initialValue: "private",
+    }),
+    defineField({
+      name: "contactInfo",
+      title: "Contact Information",
+      type: "object",
+      fields: [
+        { name: "email", type: "string", title: "Email" },
+        { name: "phone", type: "string", title: "Phone Number" },
+        { name: "address", type: "string", title: "Address / Location" },
+        { name: "website", type: "url", title: "Website URL" },
+      ],
+    }),
   ],
 });

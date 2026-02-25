@@ -83,11 +83,10 @@ export default function DeleteStartupButton({ id }: Props) {
       {/* Toast */}
       {toast && (
         <div
-          className={`fixed bottom-6 right-6 z-50 rounded-xl px-5 py-3 text-sm font-medium shadow-lg ${
-            toast.type === "success"
+          className={`fixed bottom-6 right-6 z-50 rounded-xl px-5 py-3 text-sm font-medium shadow-lg ${toast.type === "success"
               ? "bg-black text-white"
               : "bg-red-600 text-white"
-          }`}
+            }`}
         >
           {toast.message}
         </div>

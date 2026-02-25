@@ -3,6 +3,7 @@ import { Work_Sans } from "next/font/google";
 import "./globals.css";
 import "easymde/dist/easymde.min.css";
 import { Toaster } from "@/components/ui/toaster";
+import CustomCursor from "@/components/CustomCursor";
 
 
 const workSans = Work_Sans({
@@ -20,7 +21,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={workSans.variable}>{children}
+      <body className={workSans.variable}>
+        <CustomCursor />
+        {children}
         <Toaster />
       </body>
     </html>

@@ -58,7 +58,7 @@
   }
 
   .pink_container {
-    @apply w-full bg-primary min-h-[530px] pattern flex justify-center items-center flex-col py-10 px-6;
+    @apply w-full bg-primary min-h-[530px] pattern flex justify-center items-center flex-col py-10 px-6 relative z-10;
   }
 
   .tag {
@@ -98,7 +98,7 @@
   }
 
   .profile_title {
-    @apply  w-11/12 bg-white border-[5px] border-black rounded-[20px] px-5 py-3 absolute -top-9 after:absolute after:content-[''] after:-top-1 after:right-0 after:-skew-y-6 after:bg-black after:-z-[1] after:rounded-[20px] after:w-full after:h-[60px] before:absolute before:content-[''] before:-bottom-1 before:left-0  before:-skew-y-6 before:w-full before:h-[60px] before:bg-black  before:-z-[1] before:rounded-[20px] shadow-100;
+    @apply w-11/12 bg-white border-[5px] border-black rounded-[20px] px-5 py-3 absolute -top-9 after:absolute after:content-[''] after:-top-1 after:right-0 after:-skew-y-6 after:bg-black after:-z-[1] after:rounded-[20px] after:w-full after:h-[60px] before:absolute before:content-[''] before:-bottom-1 before:left-0 before:-skew-y-6 before:w-full before:h-[60px] before:bg-black before:-z-[1] before:rounded-[20px] shadow-100;
   }
 
   .profile_image {
@@ -138,7 +138,7 @@
   }
 
   .startup-card {
-    @apply bg-white border-[5px] border-black py-6 px-5 rounded-[22px] shadow-200 hover:border-primary transition-all duration-500 hover:shadow-300 hover:bg-primary-100;
+    @apply bg-white border-[5px] border-black py-6 px-5 rounded-[22px] shadow-200 hover:border-primary transition-all duration-500 hover:shadow-300 hover:bg-primary-100 min-h-[420px];
   }
 
   .startup-card_date {
@@ -150,7 +150,7 @@
   }
 
   .startup-card_img {
-    @apply w-full h-[164px] rounded-[10px] object-cover;
+    @apply w-full h-[180px] rounded-[10px] object-cover mb-4;
   }
 
   .startup-card_btn {
@@ -206,15 +206,13 @@
     --tile: 24px;
     --band: 2px;
 
-    background-image: repeating-linear-gradient(
-      to right,
-      transparent 0,
-      transparent calc((var(--tile) - var(--band)) / 2),
-      rgba(251, 232, 67, 0.15) calc((var(--tile) - var(--band)) / 2),
-      rgba(251, 232, 67, 0.3) calc((var(--tile) + var(--band)) / 2),
-      transparent calc((var(--tile) + var(--band)) / 2),
-      transparent var(--tile)
-    );
+    background-image: repeating-linear-gradient(to right,
+        transparent 0,
+        transparent calc((var(--tile) - var(--band)) / 2),
+        rgba(251, 232, 67, 0.15) calc((var(--tile) - var(--band)) / 2),
+        rgba(251, 232, 67, 0.3) calc((var(--tile) + var(--band)) / 2),
+        transparent calc((var(--tile) + var(--band)) / 2),
+        transparent var(--tile));
 
     background-repeat: repeat;
     background-position: center;
@@ -261,12 +259,29 @@
   color: #111 !important;
 }
 
-.w-md-editor-preview h1 { font-size: 22px !important; }
-.w-md-editor-preview h2 { font-size: 20px !important; }
-.w-md-editor-preview h3 { font-size: 18px !important; }
-.w-md-editor-preview h4 { font-size: 17px !important; }
-.w-md-editor-preview h5 { font-size: 16px !important; }
-.w-md-editor-preview h6 { font-size: 15px !important; }
+.w-md-editor-preview h1 {
+  font-size: 22px !important;
+}
+
+.w-md-editor-preview h2 {
+  font-size: 20px !important;
+}
+
+.w-md-editor-preview h3 {
+  font-size: 18px !important;
+}
+
+.w-md-editor-preview h4 {
+  font-size: 17px !important;
+}
+
+.w-md-editor-preview h5 {
+  font-size: 16px !important;
+}
+
+.w-md-editor-preview h6 {
+  font-size: 15px !important;
+}
 
 .w-md-editor-preview code {
   background: #f4f4f4 !important;
@@ -277,4 +292,70 @@
 
 .w-md-editor-toolbar {
   padding: 10px !important;
+}
+
+/* ========== Custom Cursor ========== */
+@media (hover: hover) and (pointer: fine) {
+
+  /* Orange themed arrow cursor */
+  * {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M5 3l14 9-7 1.5L8.5 21z' fill='%23EE2B69' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E") 5 3, auto !important;
+  }
+
+  /* White pointer on interactive elements */
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  [role='button'],
+  .startup-card,
+  label {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath d='M5 3l14 9-7 1.5L8.5 21z' fill='%23fff' stroke='%23000' stroke-width='1'/%3E%3C/svg%3E") 5 3, pointer !important;
+  }
+
+  /* Hide the dot — we only use native cursor + trailing ring */
+  .cursor-dot {
+    display: none;
+  }
+
+  .cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 36px;
+    height: 36px;
+    border: 2.5px solid #EE2B69;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99998;
+    transform: translate(-50%, -50%);
+    transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease,
+      background-color 0.25s ease, opacity 0.25s ease;
+  }
+
+  /* Hover on interactive elements */
+  .cursor-ring--hover {
+    width: 52px;
+    height: 52px;
+    border-color: #EE2B69;
+    background-color: rgba(238, 43, 105, 0.12);
+  }
+
+  /* Click effect */
+  .cursor-ring--click {
+    width: 28px;
+    height: 28px;
+    border-color: #000;
+    border-width: 3px;
+  }
+}
+
+/* Hide custom cursor on touch devices */
+@media (hover: none) {
+
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
 }

@@ -36,12 +36,14 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
           id: profile.id,
         });
         token.id = user?._id;
+        token.username = user?.username;
       }
       return token;
     },
 
     async session({ session, token }) {
       session.user.id = token.id as string;
+      (session.user as any).username = token.username as string;
       return session;
     },
   },
