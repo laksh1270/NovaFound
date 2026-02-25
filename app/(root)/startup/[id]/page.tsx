@@ -76,11 +76,14 @@ const StartupDetailsWrapper = async ({ params }: { params: Promise<{ id: string 
       </section>
 
       <section className="section_container">
-        <div className="aspect-[16/6] w-full max-w-7xl mx-auto">
-          <img
+        <div className="aspect-[16/6] relative w-full max-w-7xl mx-auto rounded-xl overflow-hidden">
+          <Image
             src={post.image}
-            alt="thumbnail"
-            className="w-full h-full object-cover rounded-xl"
+            alt="startup thumbnail"
+            fill
+            className="object-cover"
+            sizes="(max-width: 1280px) 100vw, 1280px"
+            priority
           />
         </div>
 

@@ -78,12 +78,15 @@ const StartupCard = ({
         </p>
 
         {image && (
-          <img
-            src={image}
-            alt={title || "Startup image"}
-            className="startup-card_img"
-            loading="lazy"
-          />
+          <div className="relative w-full h-[180px] mb-4">
+            <Image
+              src={image}
+              alt={title || "Startup image"}
+              fill
+              className="rounded-[10px] object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          </div>
         )}
       </Link>
 
