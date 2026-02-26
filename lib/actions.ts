@@ -46,11 +46,9 @@ export async function createPitch(
   // If a file was uploaded, upload it to Sanity and get the URL
   if (imageFile && imageFile.size > 0) {
     try {
-      // Need to convert File to an ArrayBuffer, then Buffer for Sanity upload
-      const arrayBuffer = await imageFile.arrayBuffer();
-      const buffer = Buffer.from(arrayBuffer);
-
-      const asset = await writeclient.assets.upload('image', buffer, {
+      // Pass the File directly to Sanity (supported natively by client).
+      // Using Buffer.from() often fails in Vercel Serverless/Edge functions.
+      const asset = await writeclient.assets.upload('image', imageFile, {
         filename: imageFile.name,
         contentType: imageFile.type
       });
