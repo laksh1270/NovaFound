@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     cacheComponents: true,
+    serverActions: {
+      bodySizeLimit: "10mb",
+    },
   },
 
 };

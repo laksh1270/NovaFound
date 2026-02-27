@@ -264,6 +264,15 @@ export default function StartupForm({ categoriesList }: { categoriesList: string
               onChange={(e) => {
                 const file = e.target.files?.[0];
                 if (file) {
+                  if (file.size > 10 * 1024 * 1024) {
+                    toast({
+                      title: "File too large",
+                      description: "Please select an image smaller than 10MB",
+                      variant: "destructive",
+                    });
+                    handleClearImage();
+                    return;
+                  }
                   setImageFile(file);
                   setImageUrl(""); // Clear URL if file is selected
 
