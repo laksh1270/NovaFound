@@ -3,16 +3,17 @@ import Image from 'next/image';
 import { auth, signOut, signIn } from "@/auth";
 import { BadgePlus, LogOut, House } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Navbar = async () => {
   const session = await auth();
 
   return (
-    <header className="px-5 py-3 bg-white shadow-sm">
-      <nav className="flex justify-between items-center font-work-sans text-black">
+    <header className="px-5 py-3 bg-white dark:bg-[#1a1c23] shadow-sm dark:border-b dark:border-[#374151] transition-colors">
+      <nav className="flex justify-between items-center font-work-sans text-black dark:text-[#f3f4f6]">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <Image src="/logo_novafound.png" alt="logo" width={144} height={30} priority />
+          <Image src="/logo_novafound.png" alt="logo" width={144} height={30} priority className="dark:invert dark:brightness-0 transition-all" />
         </Link>
 
         {/* Right Side Links */}
@@ -42,6 +43,8 @@ const Navbar = async () => {
                   <LogOut className="size-6 sm:hidden text-red-500" />
                 </button>
               </form>
+
+              <ThemeToggle />
 
               <Link href={`/user/${session.user.id}`}>
                 <Avatar className="size-10">

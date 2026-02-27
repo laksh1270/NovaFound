@@ -105,7 +105,7 @@ const StartupCard = ({
           {canDelete && <DeleteStartupButton id={_id} />}
           <Button
             asChild
-            className="rounded-3xl bg-black text-white px-4 py-2 hover:bg-gray-900 inline-flex items-center justify-center shrink-0"
+            className="rounded-3xl bg-black dark:bg-[#374151] text-white px-4 py-2 hover:bg-gray-900 dark:hover:bg-primary inline-flex items-center justify-center shrink-0 border border-transparent dark:border-[#4b5563] transition-colors"
           >
             <Link href={`/startup/${_id}`}>View Startup</Link>
           </Button>

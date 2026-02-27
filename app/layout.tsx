@@ -4,7 +4,7 @@ import "./globals.css";
 import "easymde/dist/easymde.min.css";
 import { Toaster } from "@/components/ui/toaster";
 import CustomCursor from "@/components/CustomCursor";
-
+import { ThemeProvider } from "@/components/ThemeProvider";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
@@ -20,11 +20,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={workSans.variable}>
-        <CustomCursor />
-        {children}
-        <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <CustomCursor />
+          {children}
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

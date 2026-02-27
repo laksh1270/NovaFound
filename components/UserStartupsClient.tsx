@@ -66,7 +66,7 @@ export default function UserStartupsClient({ startups, currentUserId, isAdmin, a
                     <button
                         type="button"
                         onClick={() => setCategoryOpen((o) => !o)}
-                        className="flex items-center gap-2 border-[3px] border-black rounded-full px-4 py-2 bg-white font-semibold text-sm shadow-100 hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
+                        className="flex items-center gap-2 border-[3px] border-black dark:border-[#374151] rounded-full px-4 py-2 bg-white dark:bg-[#1a1c23] text-black dark:text-white font-semibold text-sm shadow-100 dark:shadow-[2px_2px_0px_0px_#374151] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4h18M6 8h12M9 12h6" /></svg>
                         <span>{selectedCategory === "All" ? "Category" : selectedCategory}</span>
@@ -74,12 +74,12 @@ export default function UserStartupsClient({ startups, currentUserId, isAdmin, a
                     </button>
 
                     {categoryOpen && (
-                        <div className="absolute top-[calc(100%+6px)] left-0 bg-white border-[3px] border-black rounded-2xl shadow-200 overflow-hidden min-w-[200px]">
+                        <div className="absolute top-[calc(100%+6px)] left-0 bg-white dark:bg-[#1a1c23] border-[3px] border-black dark:border-[#374151] rounded-2xl shadow-200 dark:shadow-[2px_2px_0px_2px_#374151] overflow-hidden min-w-[200px]">
                             {categories.map((cat) => (
                                 <button
                                     key={cat}
                                     onClick={() => { setSelectedCategory(cat); setCategoryOpen(false); setCurrentPage(1); }}
-                                    className={`w-full text-left px-4 py-2.5 text-sm font-medium border-b border-gray-100 last:border-0 transition-colors hover:bg-primary-100 ${selectedCategory === cat ? "bg-primary text-white font-bold hover:bg-primary" : ""}`}
+                                    className={`w-full text-left px-4 py-2.5 text-sm font-medium border-b border-gray-100 dark:border-[#374151] text-black dark:text-white last:border-0 transition-colors hover:bg-primary-100 dark:hover:bg-[#374151] ${selectedCategory === cat ? "bg-primary text-white dark:bg-primary dark:text-white font-bold hover:bg-primary dark:hover:bg-primary" : ""}`}
                                 >
                                     {cat}
                                 </button>
@@ -89,18 +89,18 @@ export default function UserStartupsClient({ startups, currentUserId, isAdmin, a
                 </div>
 
                 {/* Date Filter via native select */}
-                <div className="relative flex items-center border-[3px] border-black rounded-full bg-white shadow-100 hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all overflow-hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-3 shrink-0 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                <div className="relative flex items-center border-[3px] border-black dark:border-[#374151] rounded-full bg-white dark:bg-[#1a1c23] text-black dark:text-white shadow-100 dark:shadow-[2px_2px_0px_0px_#374151] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all overflow-hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-3 shrink-0 text-black dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
                     <select
                         value={selectedDate}
                         onChange={(e) => { setSelectedDate(e.target.value); setCurrentPage(1); }}
-                        className="appearance-none pl-2 pr-8 py-2 text-sm font-semibold bg-transparent outline-none cursor-pointer"
+                        className="appearance-none pl-2 pr-8 py-2 text-sm font-semibold bg-transparent dark:bg-[#1a1c23] dark:text-white outline-none cursor-pointer"
                     >
                         {DATE_OPTIONS.map((opt) => (
-                            <option key={opt.value} value={opt.value}>{opt.label}</option>
+                            <option key={opt.value} value={opt.value} className="bg-white text-black dark:bg-[#1a1c23] dark:text-white">{opt.label}</option>
                         ))}
                     </select>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 absolute right-2.5 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 absolute right-2.5 pointer-events-none text-black dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                 </div>
 
                 {/* Clear filters */}
@@ -134,11 +134,11 @@ export default function UserStartupsClient({ startups, currentUserId, isAdmin, a
 
             {/* Pagination */}
             {totalPages > 1 && (
-                <div className="flex flex-wrap justify-between items-center gap-3 mt-2 pt-4 border-t-[3px] border-dashed border-black">
+                <div className="flex flex-wrap justify-between items-center gap-3 mt-2 pt-4 border-t-[3px] border-dashed border-black dark:border-[#374151]">
                     <Button
                         onClick={() => setCurrentPage((p) => p - 1)}
                         disabled={currentPage === 1}
-                        className="startup-card_btn !bg-black !text-white !font-bold !border-[3px] !border-black disabled:opacity-40"
+                        className="startup-card_btn !bg-black dark:!bg-white !text-white dark:!text-black !font-bold !border-[3px] !border-black dark:!border-[#374151] disabled:opacity-40"
                     >
                         ← Prev
                     </Button>
@@ -148,9 +148,9 @@ export default function UserStartupsClient({ startups, currentUserId, isAdmin, a
                             <button
                                 key={page}
                                 onClick={() => setCurrentPage(page)}
-                                className={`w-9 h-9 rounded-full border-[3px] border-black font-bold text-sm transition-all ${currentPage === page
+                                className={`w-9 h-9 rounded-full border-[3px] border-black dark:border-[#374151] font-bold text-sm transition-all ${currentPage === page
                                     ? "bg-primary text-white shadow-100 -translate-y-0.5 -translate-x-0.5"
-                                    : "bg-white hover:bg-primary-100"
+                                    : "bg-white text-black dark:bg-[#1a1c23] dark:text-white hover:bg-primary-100 dark:hover:bg-[#374151]"
                                     }`}
                             >
                                 {page}
@@ -161,7 +161,7 @@ export default function UserStartupsClient({ startups, currentUserId, isAdmin, a
                     <Button
                         onClick={() => setCurrentPage((p) => p + 1)}
                         disabled={currentPage === totalPages}
-                        className="startup-card_btn !bg-black !text-white !font-bold !border-[3px] !border-black disabled:opacity-40"
+                        className="startup-card_btn !bg-black dark:!bg-white !text-white dark:!text-black !font-bold !border-[3px] !border-black dark:!border-[#374151] disabled:opacity-40"
                     >
                         Next →
                     </Button>

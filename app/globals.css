@@ -12,6 +12,7 @@
 
   body {
     font-family: var(--font-work-sans);
+    @apply bg-white text-black dark:bg-[#0f0f11] dark:text-[#f3f4f6] transition-colors duration-300;
   }
 
   .w-md-editor,
@@ -30,27 +31,27 @@
   }
 
   .text-30-bold {
-    @apply text-[30px] font-bold text-black;
+    @apply text-[30px] font-bold text-black dark:text-white;
   }
 
   .text-30-semibold {
-    @apply font-semibold text-[30px] text-black;
+    @apply font-semibold text-[30px] text-black dark:text-white;
   }
 
   .text-26-semibold {
-    @apply font-semibold text-[26px] text-black;
+    @apply font-semibold text-[26px] text-black dark:text-white;
   }
 
   .text-24-black {
-    @apply text-[24px] font-black text-black;
+    @apply text-[24px] font-black text-black dark:text-white;
   }
 
   .text-20-medium {
-    @apply font-medium text-[20px] text-black;
+    @apply font-medium text-[20px] text-black dark:text-white;
   }
 
   .text-16-medium {
-    @apply font-medium text-[16px] text-black;
+    @apply font-medium text-[16px] text-black dark:text-white;
   }
 
   .text-14-normal {
@@ -66,7 +67,7 @@
   }
 
   .heading {
-    @apply uppercase bg-black px-6 py-3 font-work-sans font-extrabold text-white sm:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5;
+    @apply uppercase bg-black dark:bg-[#1f2937] px-6 py-3 font-work-sans font-extrabold text-white sm:text-[54px] sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5 transition-colors;
   }
 
   .sub-heading {
@@ -86,7 +87,7 @@
   }
 
   .no-result {
-    @apply text-black-100 text-sm font-normal;
+    @apply text-black-100 dark:text-white-100 text-sm font-normal;
   }
 
   .profile_container {
@@ -94,15 +95,15 @@
   }
 
   .profile_card {
-    @apply w-80 px-6 pb-6 pt-20 flex flex-col justify-center items-center bg-primary border-[5px] border-black shadow-100 rounded-[30px] relative z-0 h-fit max-lg:w-full;
+    @apply w-80 px-6 pb-6 pt-20 flex flex-col justify-center items-center bg-primary border-[5px] border-black dark:border-[#374151] shadow-100 dark:shadow-[2px_2px_0px_0px_#374151] rounded-[30px] relative z-0 h-fit max-lg:w-full transition-all;
   }
 
   .profile_title {
-    @apply w-11/12 bg-white border-[5px] border-black rounded-[20px] px-5 py-3 absolute -top-9 after:absolute after:content-[''] after:-top-1 after:right-0 after:-skew-y-6 after:bg-black after:-z-[1] after:rounded-[20px] after:w-full after:h-[60px] before:absolute before:content-[''] before:-bottom-1 before:left-0 before:-skew-y-6 before:w-full before:h-[60px] before:bg-black before:-z-[1] before:rounded-[20px] shadow-100;
+    @apply w-11/12 bg-white dark:bg-[#1a1c23] border-[5px] border-black dark:border-[#374151] rounded-[20px] px-5 py-3 absolute -top-9 after:absolute after:content-[''] after:-top-1 after:right-0 after:-skew-y-6 after:bg-black dark:after:bg-[#374151] after:-z-[1] after:rounded-[20px] after:w-full after:h-[60px] before:absolute before:content-[''] before:-bottom-1 before:left-0 before:-skew-y-6 before:w-full before:h-[60px] before:bg-black dark:before:bg-[#374151] before:-z-[1] before:rounded-[20px] shadow-100 dark:shadow-[2px_2px_0px_0px_#374151] transition-all;
   }
 
   .profile_image {
-    @apply rounded-full object-cover border-[3px] border-black;
+    @apply rounded-full object-cover border-[3px] border-black dark:border-[#374151];
   }
 
   .divider {
@@ -110,7 +111,7 @@
   }
 
   .view_skeleton {
-    @apply bg-zinc-400 h-10 w-24 rounded-lg fixed bottom-3 right-3;
+    @apply bg-zinc-400 dark:bg-zinc-700 h-10 w-24 rounded-lg fixed bottom-3 right-3;
   }
 
   .avatar {
@@ -118,7 +119,7 @@
   }
 
   .dropdown-menu {
-    @apply w-56 border-[5px] border-black bg-white p-5 rounded-2xl !important;
+    @apply w-56 border-[5px] border-black dark:border-[#374151] bg-white dark:bg-[#1a1c23] p-5 rounded-2xl transition-colors !important;
   }
 
   .login {
@@ -126,27 +127,27 @@
   }
 
   .search-form {
-    @apply max-w-3xl w-full min-h-[60px] sm:min-h-[80px] bg-white border-[3px] sm:border-[5px] border-black rounded-[80px] text-[16px] sm:text-[24px] mt-8 px-3 sm:px-5 flex flex-row items-center gap-2 sm:gap-5;
+    @apply max-w-3xl w-full min-h-[60px] sm:min-h-[80px] bg-white dark:bg-[#1a1c23] border-[3px] sm:border-[5px] border-black dark:border-[#374151] rounded-[80px] text-[16px] sm:text-[24px] mt-8 px-3 sm:px-5 flex flex-row items-center gap-2 sm:gap-5 transition-all;
   }
 
   .search-input {
-    @apply flex-1 font-bold placeholder:font-semibold placeholder:text-black-100 min-w-0 outline-none h-auto;
+    @apply flex-1 font-bold text-black dark:text-[#f3f4f6] placeholder:font-semibold placeholder:text-black-100 dark:placeholder:text-[#9ca3af] min-w-0 outline-none h-auto bg-transparent;
   }
 
   .search-btn {
-    @apply size-[40px] sm:size-[50px] rounded-full bg-black flex justify-center items-center shrink-0 !important;
+    @apply size-[40px] sm:size-[50px] rounded-full bg-black dark:bg-primary flex justify-center items-center shrink-0 transition-colors !important;
   }
 
   .startup-card {
-    @apply bg-white border-[5px] border-black py-6 px-5 rounded-[22px] shadow-200 hover:border-primary transition-all duration-500 hover:shadow-300 hover:bg-primary-100 min-h-[420px];
+    @apply bg-white dark:bg-[#1a1c23] border-[5px] border-black dark:border-[#374151] py-6 px-5 rounded-[22px] shadow-200 dark:shadow-[2px_2px_0px_2px_#374151] hover:border-primary dark:hover:border-primary transition-all duration-500 hover:shadow-300 dark:hover:shadow-[2px_2px_0px_2px_#FF5722] hover:bg-primary-100 dark:hover:bg-primary/5 min-h-[420px];
   }
 
   .startup-card_date {
-    @apply font-medium text-[16px] bg-primary-100 px-4 py-2 rounded-full;
+    @apply font-medium text-[16px] bg-primary-100 text-black dark:text-black px-4 py-2 rounded-full;
   }
 
   .startup-card_desc {
-    @apply font-normal text-[16px] line-clamp-2 my-3 text-black-100 break-all;
+    @apply font-normal text-[16px] line-clamp-2 my-3 text-black-100 dark:text-[#d1d5db] break-all;
   }
 
   .startup-card_img {
@@ -154,28 +155,28 @@
   }
 
   .startup-card_btn {
-    @apply rounded-full bg-black-200 font-medium text-[16px] text-white px-5 py-3 !important;
+    @apply rounded-full bg-black-200 dark:bg-[#374151] font-medium text-[16px] text-white px-5 py-3 border-[2px] border-transparent dark:border-[#4b5563] dark:hover:bg-primary transition-colors !important;
   }
 
   .startup-card_skeleton {
-    @apply w-full h-96 rounded-[22px] bg-zinc-400;
+    @apply w-full h-96 rounded-[22px] bg-zinc-400 dark:bg-[#374151];
   }
 
   .startup-form {
-    @apply max-w-2xl mx-auto bg-white my-10 space-y-8 px-6;
+    @apply max-w-2xl mx-auto bg-white dark:bg-[#1a1c23] border-[3px] border-transparent dark:border-[#374151] rounded-[22px] my-10 space-y-8 px-6 py-8 transition-colors;
   }
 
   .startup-form_label {
-    @apply font-bold text-[18px] text-black uppercase;
+    @apply font-bold text-[18px] text-black dark:text-white uppercase;
   }
 
   .startup-form_input {
-    @apply border-[3px] border-black px-5 py-4 text-lg text-black font-semibold rounded-full mt-3 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-black transition-all;
+    @apply border-[3px] border-black dark:border-[#374151] px-5 py-4 text-lg text-black dark:text-[#f3f4f6] dark:bg-[#0f0f11] font-semibold rounded-full mt-3 placeholder:text-gray-400 dark:placeholder:text-[#6b7280] focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-primary transition-all;
     font-family: 'Work Sans', sans-serif;
   }
 
   .startup-form_textarea {
-    @apply border-[3px] border-black p-5 text-[18px] text-black font-semibold rounded-[20px] mt-3 placeholder:text-black-300 !important;
+    @apply border-[3px] border-black dark:border-[#374151] dark:bg-[#0f0f11] p-5 text-[18px] text-black dark:text-[#f3f4f6] font-semibold rounded-[20px] mt-3 placeholder:text-black-300 dark:placeholder:text-[#6b7280] focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-primary transition-colors !important;
   }
 
   .startup-form_errors {
@@ -183,7 +184,7 @@
   }
 
   .startup-form_btn {
-    @apply bg-primary border-[4px] border-black rounded-full p-5 min-h-[70px] w-full font-bold text-[18px] !important;
+    @apply bg-primary border-[4px] border-black dark:border-[#374151] text-white rounded-full p-5 min-h-[70px] w-full font-bold text-[18px] transition-all !important;
   }
 
   .view-container {
@@ -191,15 +192,15 @@
   }
 
   .view-text {
-    @apply font-medium text-[16px] bg-primary-100 px-4 py-2 rounded-lg capitalize;
+    @apply font-medium text-[16px] bg-primary-100 text-black dark:text-black px-4 py-2 rounded-lg capitalize;
   }
 
   .category-tag {
-    @apply font-medium text-[16px] bg-primary-100 px-4 py-2 rounded-full;
+    @apply font-medium text-[16px] bg-primary-100 text-black dark:text-black px-4 py-2 rounded-full;
   }
 
   .startup-form-label {
-    @apply block text-[18px] font-semibold text-black mb-2 font-work-sans;
+    @apply block text-[18px] font-semibold text-black dark:text-white mb-2 font-work-sans;
   }
 
   .pattern {
@@ -219,16 +220,51 @@
     filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.4));
   }
 
-  .tag-tri {
-    @apply before:content-[''] before:absolute before:top-2 before:left-2 before:border-t-[10px] before:border-t-black before:border-r-[10px] before:border-r-transparent after:content-[''] after:absolute after:bottom-2 after:right-2 after:border-b-[10px] after:border-b-black after:border-l-[10px] after:border-l-transparent;
+  /* Dark mode specific pattern overlay */
+  .dark .pattern {
+    filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.1));
+    background-image: repeating-linear-gradient(to right,
+        transparent 0,
+        transparent calc((var(--tile) - var(--band)) / 2),
+        rgba(251, 232, 67, 0.05) calc((var(--tile) - var(--band)) / 2),
+        rgba(251, 232, 67, 0.1) calc((var(--tile) + var(--band)) / 2),
+        transparent calc((var(--tile) + var(--band)) / 2),
+        transparent var(--tile));
   }
+
+  .tag-tri {
+    @apply before:content-[''] before:absolute before:top-2 before:left-2 before:border-t-[10px] before:border-t-black dark:before:border-t-[#1f2937] before:border-r-[10px] before:border-r-transparent after:content-[''] after:absolute after:bottom-2 after:right-2 after:border-b-[10px] after:border-b-black dark:after:border-b-[#1f2937] after:border-l-[10px] after:border-l-transparent;
+  }
+}
+
+.dark .w-md-editor {
+  background-color: #0f0f11 !important;
+  border: 3px solid #374151;
+}
+
+.dark .w-md-editor-toolbar {
+  background-color: #1a1c23 !important;
+  border-bottom: 3px solid #374151;
+}
+
+.dark .w-md-editor-preview {
+  background-color: #0f0f11 !important;
+}
+
+.dark .w-md-editor-text-pre>code,
+.dark .w-md-editor-text-input {
+  color: #f3f4f6 !important;
+}
+
+.dark .w-md-editor-toolbar li>button {
+  color: #d1d5db !important;
 }
 
 
 .w-md-editor-preview p {
   font-size: 15px !important;
   line-height: 1.7 !important;
-  color: #111 !important;
+  color: inherit !important;
   font-weight: 400 !important;
   margin-bottom: 12px !important;
   font-family: var(--font-work-sans) !important;
@@ -256,7 +292,7 @@
   font-weight: 600 !important;
   margin: 18px 0 10px 0 !important;
   line-height: 1.3 !important;
-  color: #111 !important;
+  color: inherit !important;
 }
 
 .w-md-editor-preview h1 {
@@ -284,10 +320,16 @@
 }
 
 .w-md-editor-preview code {
-  background: #f4f4f4 !important;
+  background: var(--color-code-bg, #f4f4f4) !important;
+  color: var(--color-code-text, #111) !important;
   padding: 2px 5px !important;
   border-radius: 4px !important;
   font-family: monospace !important;
+}
+
+.dark .w-md-editor-preview code {
+  --color-code-bg: #333 !important;
+  --color-code-text: #fff !important;
 }
 
 .w-md-editor-toolbar {

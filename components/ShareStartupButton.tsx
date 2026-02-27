@@ -27,7 +27,7 @@ export default function ShareStartupButton() {
     return (
         <button
             onClick={handleCopy}
-            className={`flex items-center gap-2 border-[3px] border-black rounded-full px-5 py-2 font-bold text-sm transition-all shadow-100 hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 ${copied ? "bg-black text-white" : "bg-white text-black hover:bg-primary-100"
+            className={`flex items-center gap-2 border-[3px] border-black dark:border-[#374151] rounded-full px-5 py-2 font-bold text-sm transition-all shadow-100 dark:shadow-[2px_2px_0px_0px_#374151] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 ${copied ? "bg-black text-white dark:bg-white dark:text-black" : "bg-white text-black dark:bg-[#1a1c23] dark:text-white hover:bg-primary-100 dark:hover:bg-[#374151]"
                 }`}
         >
             {copied ? <Check className="size-4" /> : <LinkIcon className="size-4" />}

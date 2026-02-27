@@ -42,14 +42,14 @@ export default function FilterBar() {
 
     return (
         <div className="flex flex-wrap gap-2 items-center">
-            <span className="font-bold text-sm text-gray-500 mr-1">Browse:</span>
+            <span className="font-bold text-sm text-gray-500 dark:text-gray-400 mr-1">Browse:</span>
             {FILTERS.map((filter) => (
                 <button
                     key={filter.value}
                     onClick={() => handleFilter(filter)}
-                    className={`px-4 py-2 rounded-full border-[3px] border-black text-sm font-bold transition-all ${isActive(filter.value)
-                            ? "bg-primary text-white shadow-100 -translate-y-0.5 -translate-x-0.5"
-                            : "bg-white hover:bg-primary-100"
+                    className={`px-4 py-2 rounded-full border-[3px] border-black dark:border-[#374151] text-sm font-bold transition-all ${isActive(filter.value)
+                        ? "bg-primary text-white shadow-100 dark:shadow-[2px_2px_0px_0px_#374151] -translate-y-0.5 -translate-x-0.5"
+                        : "bg-white dark:bg-[#1a1c23] dark:text-[#f3f4f6] hover:bg-primary-100 dark:hover:bg-[#374151]"
                         }`}
                 >
                     {filter.label}

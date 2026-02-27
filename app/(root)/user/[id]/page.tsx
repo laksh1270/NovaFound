@@ -55,7 +55,7 @@ const UserProfileWrapper = async ({ params, searchParams }: { params: Promise<{ 
           <div className="mt-4 flex flex-col gap-3 w-full">
             <a
               href="/saved"
-              className="flex items-center justify-center gap-2 border-[3px] border-black rounded-full px-5 py-2 font-bold text-sm bg-white hover:bg-primary-100 shadow-100 hover:shadow-none transition-all"
+              className="flex items-center justify-center gap-2 border-[3px] border-black dark:border-[#374151] rounded-full px-5 py-2 font-bold text-sm bg-white dark:bg-[#1a1c23] text-black dark:text-white hover:bg-primary-100 dark:hover:bg-[#374151] shadow-100 hover:shadow-none transition-all"
             >
               🔖 Saved Startups
             </a>
@@ -64,14 +64,14 @@ const UserProfileWrapper = async ({ params, searchParams }: { params: Promise<{ 
               tab === "admin" ? (
                 <a
                   href={`/user/${id}`}
-                  className="flex items-center justify-center gap-2 border-[3px] border-black rounded-full px-5 py-2 font-bold text-sm bg-white hover:bg-primary-100 shadow-100 hover:shadow-none transition-all"
+                  className="flex items-center justify-center gap-2 border-[3px] border-black dark:border-[#374151] rounded-full px-5 py-2 font-bold text-sm bg-white dark:bg-[#1a1c23] text-black dark:text-white hover:bg-primary-100 dark:hover:bg-[#374151] shadow-100 hover:shadow-none transition-all"
                 >
                   🚀 View Startups
                 </a>
               ) : (
                 <a
                   href={`/user/${id}?tab=admin`}
-                  className="flex items-center justify-center gap-2 border-[3px] border-black rounded-full px-5 py-2 font-bold text-sm bg-black text-white hover:bg-gray-800 transition-all"
+                  className="flex items-center justify-center gap-2 border-[3px] border-black dark:border-[#374151] rounded-full px-5 py-2 font-bold text-sm bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 transition-all"
                 >
                   🛠️ Admin Panel
                 </a>

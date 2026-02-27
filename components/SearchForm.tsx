@@ -96,7 +96,7 @@ const SearchForm = ({
         <button
           type="button"
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-          className="flex items-center gap-1 px-4 py-2 bg-black text-white rounded-full text-sm font-bold whitespace-nowrap hover:bg-gray-800 transition-colors"
+          className="flex items-center gap-1 px-4 py-2 bg-black dark:bg-[#374151] text-white rounded-full text-sm font-bold whitespace-nowrap hover:bg-gray-800 dark:hover:bg-primary transition-colors"
         >
           {selectedCategory ? (
             <>
@@ -120,11 +120,11 @@ const SearchForm = ({
         </button>
 
         {isDropdownOpen && (
-          <div className="absolute top-full left-0 mt-2 w-56 bg-white border-[4px] border-black rounded-2xl shadow-lg z-50 max-h-[250px] overflow-y-auto">
+          <div className="absolute top-full left-0 mt-2 w-56 bg-white dark:bg-[#1a1c23] border-[4px] border-black dark:border-[#374151] rounded-2xl shadow-lg z-50 max-h-[250px] overflow-y-auto">
             <button
               type="button"
               onClick={() => handleCategorySelect("")}
-              className={`w-full text-left px-4 py-2.5 text-sm font-semibold rounded-t-xl hover:bg-primary-100 transition-colors ${!selectedCategory ? "bg-primary-100 text-primary" : "text-black"
+              className={`w-full text-left px-4 py-2.5 text-sm font-semibold rounded-t-xl hover:bg-primary-100 dark:hover:bg-[#374151] transition-colors ${!selectedCategory ? "bg-primary-100 dark:bg-[#374151] text-primary" : "text-black dark:text-[#f3f4f6]"
                 }`}
             >
               All Categories
@@ -134,9 +134,9 @@ const SearchForm = ({
                 key={cat}
                 type="button"
                 onClick={() => handleCategorySelect(cat)}
-                className={`w-full text-left px-4 py-2.5 text-sm font-semibold hover:bg-primary-100 transition-colors last:rounded-b-xl capitalize ${selectedCategory === cat
-                  ? "bg-primary-100 text-primary"
-                  : "text-black"
+                className={`w-full text-left px-4 py-2.5 text-sm font-semibold hover:bg-primary-100 dark:hover:bg-[#374151] transition-colors last:rounded-b-xl capitalize ${selectedCategory === cat
+                  ? "bg-primary-100 dark:bg-[#374151] text-primary"
+                  : "text-black dark:text-[#f3f4f6]"
                   }`}
               >
                 {cat}

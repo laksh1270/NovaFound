@@ -117,7 +117,7 @@ const StartupDetailsWrapper = async ({ params }: { params: Promise<{ id: string 
           </div>
           <h3 className="text-30-bold">Pitch Details</h3>
           {parsedContent ? (
-            <article className="prose test-prose max-w-4xl font-work-sans font-bold break-all" dangerouslySetInnerHTML={{ __html: parsedContent }} />
+            <article className="prose dark:prose-invert test-prose max-w-4xl font-work-sans font-bold break-all" dangerouslySetInnerHTML={{ __html: parsedContent }} />
           ) : (
             <p className="no-result">No Details provided</p>
           )}
@@ -125,7 +125,7 @@ const StartupDetailsWrapper = async ({ params }: { params: Promise<{ id: string 
           {/* Contact Details Section */}
           {post.contactInfo && (
             <div className="mt-8 mb-8 border-[3px] border-black rounded-3xl p-6 bg-white shadow-100 flex flex-col gap-4">
-              <h3 className="text-24-black">Contact Information</h3>
+              <h3 className="text-24-black dark:text-black">Contact Information</h3>
 
               {!session?.user?.id ? (
                 <div className="bg-primary/5 border-2 border-primary/20 rounded-xl p-5 text-center">
@@ -149,7 +149,7 @@ const StartupDetailsWrapper = async ({ params }: { params: Promise<{ id: string 
                       <div className="shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center border-2 border-primary">
                         <Mail className="size-5 text-primary" />
                       </div>
-                      <a href={`mailto:${post.contactInfo.email}`} className="text-16-medium font-bold text-black hover:text-primary transition-colors truncate">
+                      <a href={`mailto:${post.contactInfo.email}`} className="text-16-medium font-bold text-black dark:text-black hover:text-primary transition-colors truncate">
                         {post.contactInfo.email}
                       </a>
                     </div>
@@ -159,7 +159,7 @@ const StartupDetailsWrapper = async ({ params }: { params: Promise<{ id: string 
                       <div className="shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center border-2 border-primary">
                         <Phone className="size-5 text-primary" />
                       </div>
-                      <a href={`tel:${post.contactInfo.phone}`} className="text-16-medium font-bold text-black hover:text-primary transition-colors truncate">
+                      <a href={`tel:${post.contactInfo.phone}`} className="text-16-medium font-bold text-black dark:text-black hover:text-primary transition-colors truncate">
                         {post.contactInfo.phone}
                       </a>
                     </div>
@@ -169,7 +169,7 @@ const StartupDetailsWrapper = async ({ params }: { params: Promise<{ id: string 
                       <div className="shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center border-2 border-primary">
                         <MapPin className="size-5 text-primary" />
                       </div>
-                      <span className="text-16-medium font-bold text-black break-words">
+                      <span className="text-16-medium font-bold text-black dark:text-black break-words">
                         {post.contactInfo.address}
                       </span>
                     </div>
@@ -179,7 +179,7 @@ const StartupDetailsWrapper = async ({ params }: { params: Promise<{ id: string 
                       <div className="shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center border-2 border-primary">
                         <Globe className="size-5 text-primary" />
                       </div>
-                      <a href={post.contactInfo.website} target="_blank" rel="noopener noreferrer" className="text-16-medium font-bold text-black hover:text-primary transition-colors truncate">
+                      <a href={post.contactInfo.website} target="_blank" rel="noopener noreferrer" className="text-16-medium font-bold text-black dark:text-black hover:text-primary transition-colors truncate">
                         {post.contactInfo.website.replace(/^https?:\/\//, '')}
                       </a>
                     </div>
